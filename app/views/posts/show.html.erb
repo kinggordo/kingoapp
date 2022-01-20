@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card" style="width: 18rem;">
+  <% if @post.image.attached? %>
+      <%= image_tag @post.image, :class=>"card-img-top" %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.image.filename %></p>
+    
+  </div>
+</div>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, method: :delete %>
+</div>

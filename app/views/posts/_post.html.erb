@@ -1,0 +1,13 @@
+<div id="<%= dom_id post %>">
+<tr>
+      <th scope="row"><%= post.id %></th>
+      <td><%= post.title %></td>
+      <td><%= post.image.filename %></td>
+      <td>
+      <% if post.image.attached? %>
+      <%= image_tag post.image.variant(:thumb) %>
+      <% end %>
+      </td>
+      <td><%= link_to "show", post_path(post), data: { turbo: false } %></td>
+</tr>
+

@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<%= form_with url: "", method: :get, data: { turbo_frame: "posts", turbo_action: "advance" } do |form| %>
+  Search    <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()" %>
+<% end %>
+
+<%= turbo_frame_tag "posts" do %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">
+        <%= sort_link_to "Title", :title, class: "table-cell pr-4", data: { turbo_action: "advance" } %> 
+      </th>
+      <th scope="col">Filename</th>
+      <th scope="col">Image</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <%= render @posts %>
+  </tbody>
+</table>  
+</br> 
+<%== pagy_bootstrap_nav@pagy %>
+<% end %>
+</br>
+<%= link_to "New post", new_post_path %>
