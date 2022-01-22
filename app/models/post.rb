@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 	has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize_to_limit: [50, 50]
+    attachable.variant :thumb, resize_to_limit: [100, 100]
   	end
   	validates :title, presence: true
   	validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']

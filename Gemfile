@@ -76,3 +76,4 @@ gem "faker"
 gem "pagy", "~> 5.5"
 gem "pg_search", "~> 2.3"
 gem 'active_storage_validations'
+gem "aws-sdk-s3"

@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+ .card-product {
+    overflow: hidden;
+    background: transparent;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-product img {  
+    object-fit: cover;
+  }
+  
+  .card-product h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .card-product p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+  
+  .card-product .card-product-infos {
+    padding: 16px;
+  }
+
+.button{
+  display: inline;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border: 0;
+  color: #fff;
+  background: #ff5000;
+  line-height: 1.15;
+  font-size: 16px;
+  :hover {
+      transition: all .1s ease;
+      box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  }
+}
+.div{
+    overflow: hidden;
+    background: transparent;
+    align-items: center;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    padding-top:10px;
+    padding-bottom:10px;
+}
