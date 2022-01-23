@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @posts = @posts.global_search(params[:query]) if params[:query].present?
-    @pagy, @posts = pagy @posts.reorder(sort_column => sort_direction), items: params.fetch(:count, 2)
+    @pagy, @posts = pagy @posts.reorder(sort_column => sort_direction), items: params.fetch(:count, 4)
   end
 
   def sort_column
@@ -49,8 +49,7 @@ class PostsController < ApplicationController
             turbo_stream.prepend('posts',
                                 partial: "posts/post",
                                 locals: {post: @post}),
-            turbo_stream.update('post_counter', Post.count),
-            turbo_stream.update('notice', "Post #{@post.id} created")
+            turbo_stream.update('notice', "Post #{@post.title} created")
             ]
         end
         format.html { redirect_to @post, notice: "Post was successfully created." }
@@ -78,7 +77,7 @@ class PostsController < ApplicationController
             turbo_stream.update(@post,
                                 partial: "posts/post",
                                 locals: {post: @post}),
-            turbo_stream.update('notice', "post #{@post.id} updated")
+            turbo_stream.update('notice', "post #{@post.title} updated")
           ]
         end
         format.html { redirect_to @post, notice: "Post was successfully updated." }
@@ -102,8 +101,7 @@ class PostsController < ApplicationController
       format.turbo_stream do
         render turbo_stream: [
           turbo_stream.remove(@post),
-          turbo_stream.update('post_counter', Post.count),
-          turbo_stream.update('notice', "post #{@post.id} deleted")
+          turbo_stream.update('notice', "post #{@post.title} deleted")
           ]
       end
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }

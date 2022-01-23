@@ -1,20 +1,17 @@
 
-
+</br>
 <div id="<%= dom_id post %>" class="scaffold_record">
   <div class="card-product">
     <% if post.image.attached? %>
       <%= image_tag post.image.variant(:thumb) %>
     <% end %>
-  
     <div class="card-product-infos">
     <h2><%= post.title %></h2>
     <%= post.image.filename %>
     </div>
+    <%= button_to "Edit", edit_post_path(post), method: :post ,form_class:"button", class:"btn btn-primary"%>
+    <%= button_to "Destroy", post_path(post), method: :delete, form_class:"button",class:"btn btn-danger"%>
   </div>
-
-<%= button_to "Edit", edit_post_path(post), method: :post ,form_class:"button"%>
-<%= button_to "Destroy", post_path(post), method: :delete, form_class:"button"%>
-
 </div>
 
 
