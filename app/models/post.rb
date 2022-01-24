@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+	after_create_commit { broadcast_prepend_to "posts" }
+	after_destroy_commit { broadcast_remove_to "posts" }
+	after_update_commit { broadcast_replace_to "posts" }
 	has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
   	end
