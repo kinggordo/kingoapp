@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projet SPA
 
-Things you may want to cover:
+Hotwire / Turbo
 
-* Ruby version
+L'idée est de créer une Single Page Application sans utiliser de javascript, à l'aide des turbo frames et du broadcast.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+On peut créer editer et effacer un post à la volée.
+On peut chercher un post à la volée
+On peut trier un post à la volée
+Pagination avec Pagy
+Image resize avec Active Storage et aws pour le storage (nécessite libvips)
